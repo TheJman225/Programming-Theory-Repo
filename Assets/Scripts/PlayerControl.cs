@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] int range;
     Rigidbody playerRb;
 
+    [SerializeField] GameManager manager;
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -34,6 +36,19 @@ public class PlayerControl : MonoBehaviour
         else if (transform.position.x < -range)
         {
             transform.position = new Vector3(-range, 0, 0);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            manager.AddScore(other.gameObject.GetComponent<Coin>().value);
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+            manager.GameOver();
         }
     }
 }
