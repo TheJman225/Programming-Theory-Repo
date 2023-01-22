@@ -593,14 +593,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b95733a7ede7f642b5de6c5de5687fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
-  spawnRange: 4
   spawnableObjects:
   - {fileID: 530281577621848521, guid: 4757166d6979bd84ea28e80ce367c0c8, type: 3}
   - {fileID: 1100941676840662612, guid: 3bf4139dc5479d1439544acbde8a43ad, type: 3}
   - {fileID: 3694375464610494304, guid: 21dae4552092b5f4aa7f0dcd10cbb0c9, type: 3}
   - {fileID: 6399867885153645755, guid: 937c8b4e0274a19469b5fa8b825ff41d, type: 3}
-  score: 0
   scoreText: {fileID: 488360582}
   gameOverScreen: {fileID: 962765681}
 --- !u!4 &704231766
@@ -1080,8 +1077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1f7ad2e5c0e83498b7ba8e735d5d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  range: 4
   manager: {fileID: 704231765}
 --- !u!54 &1421249726
 Rigidbody:

@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private float horizontalInput;
-    [SerializeField] float speed;
-    [SerializeField] int range;
-    Rigidbody playerRb;
+    private float speed = 50;
+    private int range = 4;
+    private Rigidbody playerRb;
 
-    [SerializeField] GameManager manager;
+    [SerializeField] private GameManager manager;
 
     void Start()
     {
@@ -17,14 +17,14 @@ public class PlayerControl : MonoBehaviour
     }
     void Update()
     {
-        MovePlayer();
+        MovePlayer(); // ABSTRACTION
     }
 
     void MovePlayer()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         playerRb.AddForce(Vector3.right * horizontalInput * speed * Time.deltaTime, ForceMode.Impulse);
-        KeepInBounds();
+        KeepInBounds(); // ABSTRACTION
     }
 
     void KeepInBounds()
@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            manager.AddScore(other.gameObject.GetComponent<Coin>().value);
+            manager.AddScore(other.gameObject.GetComponent<Coin>().coinValue);
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Enemy"))

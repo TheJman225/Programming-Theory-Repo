@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] private float speed;
 
     void Update()
     {
-        Move();
+        Move(); // ABSTRACTION
     }
 
     protected virtual void Move()

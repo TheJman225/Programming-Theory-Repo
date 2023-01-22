@@ -6,14 +6,27 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float spawnRate;
-    [SerializeField] float spawnRange;
+    private float spawnRate { get; }  = 1;
+    private float spawnRange { get;  } = 4;
     private float spawnDistance { get; } = 150;
     [SerializeField] List<GameObject> spawnableObjects;
     private GameObject objectToSpawn;
     private Vector3 spawnLocation;
 
-    public int score;
+    private int m_score;
+    public int score { get { return m_score; } // ENCAPSULATION
+        set
+        {
+            if (value < 0)
+            {
+                Debug.LogError("Score cannot be negative.");
+            }
+        else
+            {
+                m_score = value;
+            }
+        }
+    }
     [SerializeField] TextMeshProUGUI scoreText;
 
     bool gameOver;

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveEnemy : Enemy
+public class WaveEnemy : Enemy // INHERITANCE
 {
-    float startPos;
-    float waveTime;
-    float waveLength { get; } = 5;
+    private float startPos;
+    private float waveTime;
+    private float waveLength { get; } = 5;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class WaveEnemy : Enemy
         waveTime = Random.Range(0, 10);
     }
 
-    protected override void Move()
+    protected override void Move() // POLYMORPHISM
     {
         base.Move();
         transform.position = new Vector3(startPos + Mathf.Sin(waveTime * waveLength), 0, transform.position.z);
